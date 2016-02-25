@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 60000
+  username: wiki
+  password: dbpass
+
+development:
+  <<: *default
+  database: wiki_dev
+
+test:
+  <<: *default
+  database: wiki_test
+
+production:
+  <<: *default
