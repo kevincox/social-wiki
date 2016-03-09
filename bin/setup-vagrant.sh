@@ -2,6 +2,11 @@
 
 set -e
 
+cat <<-EOS >/etc/profile.d/vagrant.sh
+ 	export BIND_ADDR=0.0.0.0
+EOS
+chmod +x /etc/profile.d/vagrant.sh
+
 cd /vagrant
 
 export PG_VERSION=9.3
