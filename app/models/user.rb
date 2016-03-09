@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
 =end
 
 
+def lookup_username(uname)
+	return User.find_by username: uname
+end
+
+def lookup_email(ema)
+	return User.find_by email: ema
+end
+
 	
 
 
