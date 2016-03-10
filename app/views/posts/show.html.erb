@@ -12,14 +12,22 @@
 
 <p>
   <strong>Author:</strong>
+<<<<<<< HEAD
   <%= User.find(@post.user_id).username %>
+=======
+  <%= @post.author %>
+>>>>>>> adding basic post and comment functionality
 </p>
 
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
 <p>
   <strong>Author:</strong>
+<<<<<<< HEAD
   <%= %>
+=======
+  <%= comment.author %>
+>>>>>>> adding basic post and comment functionality
 </p>
 
 <p>
@@ -33,6 +41,7 @@
 <p>
   <%= f.label :making_comment_as %><br />
   <%= f.label User.find(session[:user_id]).username %><br />
+
 </p>
 
 <p>

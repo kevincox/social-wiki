@@ -6,6 +6,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 =begin
   comenting out section temporarly
+=======
+>>>>>>> adding basic post and comment functionality
 
   test "should get index" do
     get :index
@@ -48,5 +50,6 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to posts_path
   end
+<<<<<<< HEAD
 =end
 end

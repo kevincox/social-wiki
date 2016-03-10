@@ -9,3 +9,4 @@ two:
   user_id: 2
   contents: 'user 2 comment'
   post_id: 1
+>>>>>>> adding basic post and comment functionality
