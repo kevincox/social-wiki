@@ -2,7 +2,10 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   setup do
-    @post = posts(:one)
+    test_params = {title:'test title',
+                  contents:'test content',
+                  author: 1 }
+    @post = Post.new(test_params)
   end
 
   test "should get index" do
