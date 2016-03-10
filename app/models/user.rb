@@ -20,4 +20,17 @@ email: 		user's email addres it can be used to log in
  
   has_secure_password	  
 
+	def self.authenticate_with_username_or_email(username_or_email="",login_password="")
+		if EMAIL_REGEX.match(username_or_email)
+			user = User.find_by_email(username_or_email)
+		else
+			user = User.find_by_username(username_or_email)
+		end
+		if user && user.authenticate(login_password)
+			return user
+		else
+			return nil
+		end
+	end
+	
 end
