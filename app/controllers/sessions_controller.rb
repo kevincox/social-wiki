@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		authorized_user = User.authenticate_with_username_or_email(@login_attempt[:username_or_email],@login_attempt[:login_password])
 		respond_to do |format|
 			if authorized_user
-				session[:user] = authorized_user
+				session[:user_id] = authorized_user.id
 				format.html{ redirect_to :home, notice: 'Hey welcome in buddy' }
 
 			else
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 	end
 
 	def logout
-		session[:user] = nil
+		session[:user_id] = nil
 		respond_to do |format|
 			format.html{ redirect_to :home, notice: 'Logged out, see ya later bud!'}
 		end
