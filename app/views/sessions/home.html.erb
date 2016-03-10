@@ -4,6 +4,7 @@
 
 <p id='notice'> <%=notice%></p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 <% if session[:user_id] != nil %>
@@ -11,6 +12,11 @@
 <% puts session%>
 <% unless session[:user] %>
 >>>>>>> early morning commit
+=======
+
+<% if current_user %>
+	<%= label_tag User.find(session[:user_id]).username %>
+>>>>>>> late morning commit
 	<%= link_to 'Logout', logout_path %><br>
 <% else %>
 	<%= link_to 'Login', login_path %><br>
