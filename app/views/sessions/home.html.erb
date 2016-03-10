@@ -3,7 +3,6 @@
 <%= link_to 'Posts', {:controller => 'posts', :action => 'index'} %>
 
 <p id='notice'> <%=notice%></p>
-
 <% if current_user %>
   <%= label_tag User.find(session[:user_id]).username %>
   <%= link_to 'Logout', logout_path %><br>

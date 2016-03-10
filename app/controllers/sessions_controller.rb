@@ -37,4 +37,5 @@ class SessionsController < ApplicationController
     def login_attempt_params
       params.permit(:username_or_email,:login_password)
     end
+
 end

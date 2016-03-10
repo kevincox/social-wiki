@@ -13,6 +13,7 @@ email: 		user's email addres it can be used to log in
 
   EMAIL_REGEX =  %r{[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z}i
 
+<<<<<<< HEAD
   validates :username, presence: true, uniqueness: true, length: { in: 3..20 }
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX 
 
@@ -53,5 +54,4 @@ email:     user's email addres it can be used to log in
     return nil
     end
   end
-
 end
