@@ -1,39 +1,24 @@
 Rails.application.routes.draw do 
-<<<<<<< HEAD
-
-  resources:users
-=======
   resources :posts do
     resources :comments
   end
   resources :users
   
->>>>>>> commit with all working parts for a very simple demo
-  root 'sessions#home'
+ root 'sessions#home'
 
   get 'login' => 'sessions#login' 
 
   post 'login' => 'sessions#login_attempt'
 
   get 'logout' => 'sessions#logout'
-  
-  get 'home' => 'sessions#home'
 
   get 'profile' => 'sessions#profile'
 
   get 'setting' => 'sessions#setting'
-
-<<<<<<< HEAD
-  post 'login' => 'sessions#login_attempt'
-
-=======
  
   get 'signup' => 'users#signup'
-
-  get 'pages/home'
   
   get 'users' => 'users#index'
->>>>>>> commit with all working parts for a very simple demo
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
