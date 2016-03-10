@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :comments
 =begin
 User attributes
 username: 	this is the username that the user goes by it can be used to log in. 
@@ -52,4 +53,5 @@ email:     user's email addres it can be used to log in
     return nil
     end
   end
+
 end
