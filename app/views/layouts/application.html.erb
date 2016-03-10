@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<div id="wrapper">
+
+<header>
+<%= link_to image_tag("Wiki-icon.png", alt: "Social Wiki"),
+  {:controller => 'pages', :action => 'home'},
+  {:class => 'websiteLogo'} %>
+
+<%= link_to 'Social Wiki', {:controller => 'pages', :action => 'home'},
+  {:class => 'websiteTitle'} %>
+</header>
+
 <%= yield %>
 
+</div>
 </body>
 </html>

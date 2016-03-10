@@ -31,6 +31,5 @@ email: 		user's email addres it can be used to log in
 		else
 			return nil
 		end
-	end
-	
+	end	
 end
