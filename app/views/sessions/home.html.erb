@@ -1,7 +1,14 @@
-<h1>Yar a wizard and you're home!</h1>
+<h1>Welcome to the Social Wiki</h1>
+<p><i>"Stack Overflow Meets Wikipedia"</i></p>
+<%= link_to 'Posts', {:controller => 'posts', :action => 'index'} %>
+
 <p id='notice'> <%=notice%></p>
 
-<%= link_to 'Login', login_path %>
 
-<%= link_to 'Signup', signup_path %>
+<% if session[:user_id] != nil %>
+	<%= link_to 'Logout', logout_path %><br>
+<% else %>
+	<%= link_to 'Login', login_path %><br>
+	<%= link_to 'Signup', signup_path %>	
+<% end %>	
 

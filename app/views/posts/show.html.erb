@@ -12,7 +12,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @post.author %>
+  <%= User.get_username_by_id(@post.author) %>
 </p>
 
 <h2>Comments</h2>
@@ -32,7 +32,7 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <p>
   <%= f.label :author %><br />
-  <%= f.text_field :author %><br />
+  <%= f.label User.get_username_by_id(session[:user_id]) %><br />
 </p>
 
 <p>
