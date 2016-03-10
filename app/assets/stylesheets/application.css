@@ -18,16 +18,16 @@ div#wrapper{
 }
 
 header{
-	display:block;
-	padding:10px 10px 10px 10px;
+  display:block;
+  padding:10px 10px 10px 10px;
 }
 
 .websiteLogo{
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .websiteTitle{
-	font-size: 50px;
-	text-decoration:none;
-	font-weight:bold;
+  font-size: 50px;
+  text-decoration:none;
+  font-weight:bold;
 }

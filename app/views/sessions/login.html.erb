@@ -6,20 +6,20 @@
 <p id="login_error" ><%= notice%></p>
 
 <div>
-	<%= form_tag(login_url) do %>
-	<div class="field">
-		<%= label_tag :username_or_email %><br>
-		<%= text_field_tag :username_or_email %>
-	</div>
-	<div class="field">
-		<%= label_tag :login_password %><br>
-		<%= password_field_tag :login_password %>
-	</div>
-	<div class="action">
-		<%= submit_tag :Login %>
-	</div>
+  <%= form_tag(login_url) do %>
+  <div class="field">
+    <%= label_tag :username_or_email %><br>
+    <%= text_field_tag :username_or_email %>
+  </div>
+  <div class="field">
+    <%= label_tag :login_password %><br>
+    <%= password_field_tag :login_password %>
+  </div>
+  <div class="action">
+    <%= submit_tag :Login %>
+  </div>
 
-	<% end %>
+  <% end %>
 </div>
 
 <%= link_to 'Back', home_path %>
