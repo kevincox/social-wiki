@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :author %><br>
-    <%= f.number_field :author %>
+    <%= f.label User.get_username_by_id(@post.author) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -17,6 +17,13 @@ class SessionsController < ApplicationController
 		end
 	end
 
+	def logout
+		session[:user_id] = nil
+		respond_to do |format|
+			format.html{ redirect_to :home, notice: 'Logged out, see ya later bud!'}
+		end
+	end
+
 	def home
 	end
 

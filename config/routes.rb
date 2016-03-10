@@ -1,20 +1,24 @@
 Rails.application.routes.draw do 
   resources :posts do
-  resources :comments
+    resources :comments
+  end
   resources :users
   
-  root 'pages#home'
+  root 'sessions#home'
 
   get 'login' => 'sessions#login' 
 
+  post 'login' => 'sessions#login_attempt'
+
+  get 'logout' => 'sessions#logout'
+  
   get 'home' => 'sessions#home'
 
   get 'profile' => 'sessions#profile'
 
   get 'setting' => 'sessions#setting'
 
-  post 'login' => 'sessions#login_attempt'
-
+ 
   get 'signup' => 'users#signup'
 
   get 'pages/home'
