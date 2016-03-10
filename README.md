@@ -8,12 +8,9 @@
 - [x] **Milestone 2:** Early Prototype
   - Added User, Post and Comment models.
   - Added Signup/Login functionality.
+  - Added Posting and Commenting as a User.
   - Added Home Page + Basic Header.
   - Completed Scrum 2.
 - [ ] **Milestone 3:** Alpha Release
 - [ ] **Milestone 4:** Final Demo
 
-#TODO - Milestone 2:
-- [x] Complete Milestone 2.
-- [x] Complete Scrum 2 (Due March 6th).
-- [x] Setup a time on March 10th to show a 10-15 minute demo for Milestone 2.
