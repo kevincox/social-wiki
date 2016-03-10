@@ -19,7 +19,6 @@ email: 		user's email addres it can be used to log in
   validates :password_confirmation, presence: true
  
   has_secure_password	  
-
   has_many :posts
   has_many :comments
 =begin
