@@ -32,12 +32,19 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+<<<<<<< HEAD
         format.html { redirect_to :home, notice: 'User was successfully created.' }
+=======
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+>>>>>>>  used validation methods in user model now uses has_secure_password to protect password in db
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :signup }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+<<<<<<< HEAD
 
+=======
+>>>>>>>  used validation methods in user model now uses has_secure_password to protect password in db
       end
     end
 
@@ -65,8 +72,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
+ private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -75,9 +81,5 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username,:password,:password_digest,:password_confirmation, :email)
-    end
-
-    def confirm_password
-      params.require(:user).permit(:confirm_password)
-    end
+   end
 end
