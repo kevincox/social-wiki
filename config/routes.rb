@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#logout'
 
+  get 'home' => 'sessions#home'
+
   get 'profile' => 'sessions#profile'
 
   get 'setting' => 'sessions#setting'
