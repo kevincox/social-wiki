@@ -1,6 +1,16 @@
 Rails.application.routes.draw do 
   resources:users
+  root 'sessions#home'
 
+  get 'login' => 'sessions#login' 
+
+  get 'home' => 'sessions#home'
+
+  get 'profile' => 'sessions#profile'
+
+  get 'setting' => 'sessions#setting'
+
+  post 'login' => 'sessions#login_attempt'
 
 
   get 'signup' => 'users#signup'
