@@ -12,14 +12,14 @@
 
 <p>
   <strong>Author:</strong>
-  <%= User.get_username_by_id(@post.author) %>
+  <%= User.find(@post.user_id).username %>
 </p>
 
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
 <p>
   <strong>Author:</strong>
-  <%= comment.author %>
+  <%= %>
 </p>
 
 <p>
@@ -31,8 +31,8 @@
 <h2>Add a Comment:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <p>
-  <%= f.label :author %><br />
-  <%= f.label User.get_username_by_id(session[:user_id]) %><br />
+  <%= f.label :making_comment_as %><br />
+  <%= f.label User.find(session[:user_id]).username %><br />
 </p>
 
 <p>
@@ -45,5 +45,4 @@
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
