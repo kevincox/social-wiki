@@ -2,6 +2,11 @@
 
 set -e
 
+cat <<-EOS >/etc/profile.d/vagrant.sh
+ 	export BIND_ADDR=0.0.0.0
+EOS
+chmod +x /etc/profile.d/vagrant.sh
+
 cd /vagrant
 
 export PG_VERSION=9.3
@@ -19,8 +24,6 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y upgrade
 apt-get -y install "${to_install[@]}"
-
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 bin/setup-postgresql.sh
 bin/setup-rvm.sh
