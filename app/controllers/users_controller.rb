@@ -32,19 +32,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-<<<<<<< HEAD
         format.html { redirect_to :home, notice: 'User was successfully created.' }
-=======
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
->>>>>>>  used validation methods in user model now uses has_secure_password to protect password in db
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :signup }
         format.json { render json: @user.errors, status: :unprocessable_entity }
-<<<<<<< HEAD
-
-=======
->>>>>>>  used validation methods in user model now uses has_secure_password to protect password in db
       end
     end
 

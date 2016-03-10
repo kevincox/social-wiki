@@ -4,7 +4,6 @@ user1:
   username: 'user1'
   password_digest:  <%= BCrypt::Password.create 'password1' %>
   email: 'user1@email.ca'
-
 user2:
   id: 2
   username: 'user2'

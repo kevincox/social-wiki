@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       if authorized_user
         session[:user_id] = authorized_user.id
         format.html{ redirect_to :home, notice: 'Hey welcome in buddy' }
-
       else
         format.html{ redirect_to :login, notice: "oops, invalid username or password" }
       end
@@ -25,6 +24,7 @@ class SessionsController < ApplicationController
 
   def home
   end
+
 
   def profile
   end
