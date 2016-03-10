@@ -1,5 +1,4 @@
 Rails.application.routes.draw do 
-  
   resources :posts do
     resources :comments
   end
@@ -13,8 +12,6 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#login_attempt'
 
   get 'logout' => 'sessions#logout'
-
-  get 'home' => 'sessions#home'
 
   get 'profile' => 'sessions#profile'
 
