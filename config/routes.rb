@@ -4,13 +4,17 @@ Rails.application.routes.draw do
   end
   resources :users
   
- root 'sessions#home'
+  root 'sessions#home'
+
+  get 'pages/home'
 
   get 'login' => 'sessions#login' 
 
   post 'login' => 'sessions#login_attempt'
 
   get 'logout' => 'sessions#logout'
+
+  get 'home' => 'sessions#home'
 
   get 'profile' => 'sessions#profile'
 
