@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def login
   end
-
   def login_attempt
     @login_attempt = login_attempt_params
     authorized_user = User.authenticate_with_username_or_email(@login_attempt[:username_or_email],@login_attempt[:login_password])
@@ -24,8 +23,6 @@ class SessionsController < ApplicationController
 
   def home
   end
-
-
   def profile
   end
 
@@ -37,5 +34,4 @@ class SessionsController < ApplicationController
     def login_attempt_params
       params.permit(:username_or_email,:login_password)
     end
-
 end
