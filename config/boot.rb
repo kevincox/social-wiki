@@ -7,10 +7,10 @@ require 'pp'
 require 'rails/commands/server'
 
 module Rails
-	class Server
-		alias :default_options_alias :default_options
-		def default_options
-			default_options_alias.merge! Host: ENV.fetch('BIND_ADDR', 'localhost')
-		end
-	end
+  class Server
+    alias :default_options_alias :default_options
+    def default_options
+      default_options_alias.merge! Host: ENV.fetch('BIND_ADDR', 'localhost')
+    end
+  end
 end

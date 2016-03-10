@@ -9,8 +9,8 @@ curl -fsSL https://get.rvm.io | bash
 usermod -aG rvm vagrant
 
 cat >/etc/rvmrc <<-END
-	umask u=rwx,g=rwx,o=rx
-	rvm_install_on_use_flag=1
+  umask u=rwx,g=rwx,o=rx
+  rvm_install_on_use_flag=1
 END
 
 . /etc/profile.d/rvm.sh
