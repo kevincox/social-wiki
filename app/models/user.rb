@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-has_many :posts
-has_many :comments
-require 'bcrypt'
+	has_many :posts
+	has_many :comments
+	
 =begin
 User attributes
 username: 	this is the username that the user goes by it can be used to log in. 
@@ -21,15 +21,6 @@ email: 		user's email addres it can be used to log in
 	validates :password_confirmation, presence: true
 	
 	has_secure_password	  
-
-	def self.get_username_by_id(id)
-		user = User.find_by_id(id)
-		if user
-			return user.username
-		else
-			return id
-		end
-	end
 	def self.authenticate_with_username_or_email(username_or_email="",login_password="")
 		if EMAIL_REGEX.match(username_or_email)
 			user = User.find_by_email(username_or_email)

@@ -3,8 +3,8 @@
 <%= link_to 'Posts', {:controller => 'posts', :action => 'index'} %>
 
 <p id='notice'> <%=notice%></p>
-
-<% if session[:user_id] != nil %>
+<% puts session%>
+<% unless session[:user] %>
 	<%= link_to 'Logout', logout_path %><br>
 <% else %>
 	<%= link_to 'Login', login_path %><br>
