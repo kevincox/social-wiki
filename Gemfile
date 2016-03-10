@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'bcrypt'
 
 group :development do
   gem 'byebug'
