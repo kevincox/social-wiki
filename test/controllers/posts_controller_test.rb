@@ -2,15 +2,10 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   setup do
-    test_params = {title:'test title',
-                  contents:'test content',
-                  author: 1 }
-    @post = Post.new(test_params)
+    @post = posts(:one)
   end
 =begin
   comenting out section temporarly
-=======
->>>>>>> adding basic post and comment functionality
 
   test "should get index" do
     get :index
@@ -53,6 +48,5 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to posts_path
   end
-<<<<<<< HEAD
 =end
 end
