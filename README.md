@@ -9,7 +9,7 @@
   - Added User, Post and Comment models.
   - Added Signup/Login functionality.
   - Added Home Page + Basic Header.
-  - Completed Scrum 3.
+  - Completed Scrum 2.
 - [ ] **Milestone 3:** Alpha Release
 - [ ] **Milestone 4:** Final Demo
 
