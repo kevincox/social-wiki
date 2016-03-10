@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_many :posts
   has_many :comments
 =begin
@@ -32,5 +33,4 @@ email:     user's email addres it can be used to log in
     return nil
     end
   end
-  
 end
