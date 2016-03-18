@@ -13,4 +13,3 @@
   - Completed Scrum 2.
 - [ ] **Milestone 3:** Alpha Release
 - [ ] **Milestone 4:** Final Demo
-
