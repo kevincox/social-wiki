@@ -1,0 +1,12 @@
+<h1>Welcome to the Social Wiki</h1>
+<p><i>"Stack Overflow Meets Wikipedia"</i></p>
+<%= link_to 'Posts', {:controller => 'posts', :action => 'index'} %>
+
+<p id='notice'> <%=notice%></p>
+<% if current_user %>
+  <%= label_tag current_user.username %>
+  <%= link_to 'Logout', logout_path %><br>
+<% else %>
+  <%= link_to 'Login', login_path %><br>
+  <%= link_to 'Signup', signup_path %>
+ <% end %>
