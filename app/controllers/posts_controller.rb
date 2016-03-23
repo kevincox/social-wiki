@@ -27,13 +27,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @subject = Subject.find(params[:post][:subject])
     respond_to do |format|
+      unless @subject.blank?
+        @post.subjects << @subject
+        format.html { redirect_to @subject, notice: 'Post was successfully created.' }
+      end
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -89,6 +92,10 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :contents, :author_id)
+    @post_params ||= begin
+     p = params.require(:post).permit(:title, :contents, :author_id, :subjects)
+     p[:subjects] = Subjects.find(p[:subjects]) if p.include? :subjects
+     p
+    end
   end
 end

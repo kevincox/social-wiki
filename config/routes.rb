@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :subjects
+  
   resources :users
 
   root 'sessions#home'
@@ -28,7 +29,8 @@ Rails.application.routes.draw do
   get 'setting' => 'sessions#setting'
 
   get 'signup' => 'users#signup'
-  
+
+  get 'subjects' => 'subjects#index'
   
   get 'users' => 'users#index'
 
