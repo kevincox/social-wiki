@@ -5,8 +5,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  
+    = yield :head
+
   %body
+    = javascript_include_tag javascript_path params[:controller]
+    = stylesheet_link_tag stylesheet_path params[:controller]
     %header
       #headerbar
         = link_to "Social Wiki", "/", {id: 'logo'}
