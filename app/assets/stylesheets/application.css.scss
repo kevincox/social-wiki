@@ -1,0 +1,38 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+html, head, body { margin: 0; padding: 0; width: 100%; height: 100% }
+
+body {
+  display: flex;
+  flex-flow: column;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  background: purple;
+  color: white;
+  
+  #logo {
+    display: block;
+    padding: 0.4em;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    text-decoration: inherit;
+  }
+  
+  a:hover {
+    background: hsla(0, 0, 100, 0.2);
+  }
+}
+
+#body {
+  display: table-row;
+}
