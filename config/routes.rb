@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'subject/index'
+
   resources :posts do
     resources :comments
   end
+  resources :subjects
   resources :users
 
   root 'sessions#home'
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   get 'setting' => 'sessions#setting'
 
   get 'signup' => 'users#signup'
+  
   
   get 'users' => 'users#index'
 

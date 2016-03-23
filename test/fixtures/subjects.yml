@@ -1,0 +1,7 @@
+one:
+  name: Subject One
+  desc: This is the first subject in our wiki!
+
+two:
+  name: Cool Sub
+  desc: Really Cool Subject Two
