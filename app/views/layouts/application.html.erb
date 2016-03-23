@@ -11,13 +11,23 @@
 <div id="wrapper">
 
 <header>
-<%= link_to image_tag("Wiki-icon.png", alt: "Social Wiki"),
-  {:controller => 'pages', :action => 'home'},
-  {:class => 'websiteLogo'} %>
 
-<%= link_to 'Social Wiki', {:controller => 'pages', :action => 'home'},
-  {:class => 'websiteTitle'} %>
+<div class="navBar">
+<% if current_user %>
+  <%= label_tag current_user.username %>
+  <%= link_to 'Logout', logout_path %><br>
+<% else %>
+<%= link_to "Log in", login_path %>
+<%= link_to "Sign up", signup_path %>
+<% end %>
+</div>
+
 </header>
+<div class="websiteTitle">
+<%= link_to 'Social Wiki', {:controller => 'sessions', :action => 'home'},{:class => 'websiteTitle'}%>
+
+</div>
+
 
 <%= yield %>
 

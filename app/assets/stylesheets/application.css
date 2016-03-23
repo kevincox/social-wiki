@@ -27,7 +27,20 @@ header{
 }
 
 .websiteTitle{
+
+  text-align:center;
   font-size: 50px;
   text-decoration:none;
   font-weight:bold;
+  
 }
+.navBar{
+background-size:50px 50px;
+font-size: 12px;
+float:right;
+padding-right:5px;
+ background-color: lightblue;
+border: 5px solid lightblue;
+border-radius:10px;
+}
+
