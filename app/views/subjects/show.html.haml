@@ -1,0 +1,7 @@
+%h1= @subject.name
+%p= @subject.desc
+%ul
+  - @subject.posts.each do |p|
+    %li
+      %p= p.title
+      %p= p.contents

@@ -1,0 +1,4 @@
+%h1 Subjects
+%ul
+  - @subjects.each do |s|
+    %li= link_to s.desc, s
