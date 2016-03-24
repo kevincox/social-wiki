@@ -1,7 +1,9 @@
 %h1= @subject.name
 %p= @subject.desc
-%ul
+
+%ul#posts
   - @subject.posts.each do |p|
-    %li
-      %p= p.title
-      %p= p.contents
+    %li.post
+      %h2.title= p.title
+      .author by #{p.user.username}
+      .contents!= p.contents

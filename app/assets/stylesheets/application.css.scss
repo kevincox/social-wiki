@@ -1,6 +1,5 @@
 /*
- *= require_tree .
- *= require_self
+ * = require_self
  */
 
 html, head, body { margin: 0; padding: 0; width: 100%; height: 100% }
@@ -33,6 +32,4 @@ header {
   }
 }
 
-#body {
-  display: table-row;
-}
+// #body { }
