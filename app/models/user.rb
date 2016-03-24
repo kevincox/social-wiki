@@ -17,8 +17,13 @@ email:     user's email addres it can be used to log in
   validates :password, confirmation: true, length: {in: 8..256}  
   validates :password_confirmation, presence: true
   
+  acts_as_voter  
   has_secure_password  
   
+
+
+
+
   def self.authenticate_with_username_or_email(username_or_email,login_password)
     if EMAIL_REGEX.match(username_or_email)
       user = User.find_by_email(username_or_email)
@@ -31,4 +36,6 @@ email:     user's email addres it can be used to log in
       return nil
     end
   end
+
+
 end

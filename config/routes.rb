@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'subject/index'
 
   resources :posts do
+    member do 
+      put "upvote", to: 'posts#upvote'
+      put "downvote", to: 'posts#downvote'
+    end  
     resources :comments
   end
   resources :subjects
