@@ -58,8 +58,7 @@ class PostsController < ApplicationController
     if @post.user == current_user
       @post.destroy
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-        
+        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }        
       end
     else
       respond_to do |format|

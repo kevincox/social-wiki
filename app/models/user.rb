@@ -20,7 +20,6 @@ email:     user's email addres it can be used to log in
   acts_as_voter
   has_secure_password
 
-
   def trustscore
       up_score = 0.0
       vote_score = 0.0
@@ -34,7 +33,6 @@ email:     user's email addres it can be used to log in
       return up_score/vote_score *100
     end
 
-
   def self.authenticate_with_username_or_email(username_or_email,login_password)
     if EMAIL_REGEX.match(username_or_email)
       user = User.find_by_email(username_or_email)
@@ -47,6 +45,4 @@ email:     user's email addres it can be used to log in
       return nil
     end
   end
-
-
 end
