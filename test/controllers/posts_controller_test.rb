@@ -92,5 +92,6 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, id: @post
     end
     assert_redirected_to posts_path
+     
   end
 end
