@@ -60,5 +60,4 @@ class UsersControllerTest < ActionController::TestCase
     end
     refute session[:user_id]
   end
-
 end
