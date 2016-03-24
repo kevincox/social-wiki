@@ -1,0 +1,9 @@
+%html
+  %head
+    = label_tag current_user.username
+    %title Test
+
+    %body
+    %p Posts made
+    - current_user.posts.each do |i|
+      %div #{link_to i.title, "/"}
