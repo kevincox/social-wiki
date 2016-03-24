@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-	
+
   test "should sign up properly"  do
     assert_difference('User.count') do
       post :create, user: {username: 'user3',email:'user3@email.ca', password:'password3', password_confirmation:'password3'} 
@@ -43,15 +43,15 @@ class UsersControllerTest < ActionController::TestCase
   test "should not be able to sign up with a bad email format" do
     assert_difference('User.count',0) do
       post :create, user: {username: 'user3',email:'user3emailca', password:'password3', password_confirmation:'password3'} 
-  	  post :create, user: {username: 'user3',email:'user3email.ca', password:'password3', password_confirmation:'password3'} 
-  	  post :create, user: {username: 'user3',email:'user3@emailca', password:'password3', password_confirmation:'password3'} 
+      post :create, user: {username: 'user3',email:'user3email.ca', password:'password3', password_confirmation:'password3'} 
+      post :create, user: {username: 'user3',email:'user3@emailca', password:'password3', password_confirmation:'password3'} 
     end
     refute session[:user_id]  
   end
   test "should not be able to sign up with a missing password" do
     assert_difference('User.count',0) do
       post :create, user: {username: 'user3',email:'user3@email.ca', password:'', password_confirmation:'password3'} 
-  	  post :create, user: {username: 'user3',email:'user3@email.ca', password:'password3', password_confirmation:''} 
+      post :create, user: {username: 'user3',email:'user3@email.ca', password:'password3', password_confirmation:''} 
     end
     refute session[:user_id]  
   end
