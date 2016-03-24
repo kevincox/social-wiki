@@ -12,12 +12,17 @@ body {
 header {
   display: flex;
   flex-flow: row;
-  background: purple;
+  align-items: stretch;
+  background: #7100db;
   color: white;
-
+  font-weight: 500;
+  
   #logo {
-    display: row;
-    padding: 0.4em;
+    font-weight: 700;
+  }
+  
+  .spacer {
+    flex: 1;
   }
 
   * {
@@ -25,6 +30,10 @@ header {
     padding: 0;
     color: inherit;
     text-decoration: inherit;
+  }
+
+  >* {
+    padding: 1em;
   }
 
   a:hover {
