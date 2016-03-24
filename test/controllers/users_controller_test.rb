@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-
+	
   test "should sign up properly"  do
     assert_difference('User.count') do
       post :create, user: {username: 'user3',email:'user3@email.ca', password:'password3', password_confirmation:'password3'} 
