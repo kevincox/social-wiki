@@ -9,7 +9,6 @@ class UsersControllerTest < ActionController::TestCase
     assert session[:user_id] == User.find_by_username('user3').id  
     assert_redirected_to :home
   end
-
   test "should not be able to sign up with a username already existing" do
     assert_difference('User.count',0) do
       post :create, user: {username: 'user2',email:'user3@email.ca', password:'password3', password_confirmation:'password3'} 
@@ -61,4 +60,5 @@ class UsersControllerTest < ActionController::TestCase
     end
     refute session[:user_id]
   end
+
 end
