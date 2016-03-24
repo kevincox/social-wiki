@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        session[:user_id]= @user.id
         format.html { redirect_to :home, notice: 'User was successfully created.' }
 
       else
