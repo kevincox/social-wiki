@@ -21,7 +21,7 @@
         <td><%= post.contents %></td>
         <td><%= post.user.username %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, disabled: :true %></td>
       </tr>
     <% end %>
   </tbody>
