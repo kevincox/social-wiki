@@ -1,11 +1,12 @@
 %h1 Welcome #{current_user.username}, to your profile page!
 %p Here, you'll be allowed to view, edit, and destroy your posts
-%p Some stats for you
+%h2 Some stats for you
 %p
-  Total number of posts : #{current_user.posts.count} &nbsp
-  Democracy level :#{current_user.votes.size} &nbsp
-  Trust score :#{current_user.trustscore} &nbsp
+  Total number of your posts : #{current_user.posts.count}
 %p
+  Democracy level (votes given) :#{current_user.votes.size}
+%p
+  Trust score :#{current_user.trustscore}
 
 %table
   %thead
