@@ -20,10 +20,6 @@ email:     user's email addres it can be used to log in
   acts_as_voter  
   has_secure_password  
   
-
-
-
-
   def self.authenticate_with_username_or_email(username_or_email,login_password)
     if EMAIL_REGEX.match(username_or_email)
       user = User.find_by_email(username_or_email)

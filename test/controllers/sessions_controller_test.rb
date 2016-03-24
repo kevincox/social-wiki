@@ -8,19 +8,19 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should have a successfull login attempt with username" do
     post :login_attempt, username_or_email: 'user1', login_password: 'password1'
-    assert session[:user_id] == users(:user1).id
+    assert_equal session[:user_id], users(:user1).id
     assert_redirected_to :home 
   end
    
   test "should have a successfull login attempt with email" do
     post :login_attempt, username_or_email: 'user1@email.ca', login_password: 'password1'
-    assert session[:user_id] == users(:user1).id
+    assert_equal session[:user_id], users(:user1).id
     assert_redirected_to :home 
   end
 
   test "should not have a successfull login attempt with wrong password" do
     post :login_attempt, username_or_email: 'user1@email.ca', login_password: 'password3'
-    refute session[:user_id] == users(:user1).id
+    refute_equal session[:user_id], users(:user1).id
     refute session[:user_id]
     assert_redirected_to :login 
   end
