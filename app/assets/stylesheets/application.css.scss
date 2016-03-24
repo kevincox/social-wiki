@@ -17,9 +17,8 @@ header {
   color: white;
 
   #logo {
-    display: block;
+    display: row;
     padding: 0.4em;
-    .spacer {flex: 1}
   }
 
   * {
