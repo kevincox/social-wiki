@@ -62,7 +62,6 @@ class PostsControllerTest < ActionController::TestCase
     assert_difference('Post.count') do
       post :create, post: {contents: @post.contents, title: @post.title }
     end
-
     assert_redirected_to post_path(assigns(:post))
   end
 
@@ -93,5 +92,6 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, id: @post
     end
     assert_redirected_to posts_path
+     
   end
 end

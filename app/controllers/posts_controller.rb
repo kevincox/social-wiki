@@ -59,12 +59,11 @@ class PostsController < ApplicationController
       @post.destroy
       respond_to do |format|
         format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-        format.json { head :no_content }
+        
       end
     else
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Post was not destroyed. You do not own this post' }
-        format.json { head :no_content } 
+        format.html { redirect_to posts_url, notice: 'Post was not destroyed. You do not own this post' } 
       end
     end
   end
