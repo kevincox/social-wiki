@@ -3,4 +3,11 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :subjects
   has_many :comments
   validates :title, :contents, presence: true
+
+  acts_as_votable
+
+  def score
+    self.get_upvotes.size - self.get_downvotes.size
+  end
+  
 end
