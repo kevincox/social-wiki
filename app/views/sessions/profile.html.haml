@@ -6,4 +6,4 @@
     %body
     %p Posts made
     - current_user.posts.each do |i|
-      %div #{link_to i.title, "/"}
+      %div #{link_to i.title, i}
