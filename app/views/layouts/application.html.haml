@@ -10,16 +10,12 @@
     %header
       #headerbar
         = link_to "Social Wiki", "/", {id: 'logo'}
-        
         - if current_user
           = label_tag current_user.username
           = link_to 'Logout', logout_path, {id: 'logo'}
-  
         - else
           = link_to "Log in", login_path, {id: 'logo'}
           = link_to "Sign up", signup_path, {id: 'logo'}
-        
-        
     #body
       = yield
     

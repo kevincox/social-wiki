@@ -16,19 +16,11 @@ header {
   background: purple;
   color: white;
 
-  #navBar {
-    display: block;
-    padding: 0.4em;
-    float: left;
-  }
-
   #logo {
     display: block;
     padding: 0.4em;
-    float: left;
-
+    .spacer {flex: 1}
   }
-
 
   * {
     margin: 0;
@@ -41,9 +33,6 @@ header {
     background: hsla(0, 0, 100, 0.2);
   }
 }
-
-
-
 
 #body {
   display: table-row;
