@@ -1,0 +1,15 @@
+= form_for @subject do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :desc
+    = f.text_area :desc
+  .actions
+    = f.submit
+  - if @subject.errors.any?
+    #error_explaination
+      %h2 #{pluralize @subject.errors.count, 'error'} prohibited this subject from being saved:
+      %ul
+        - @subject.errors.full_messages.each do |message|
+          %li= message

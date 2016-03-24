@@ -1,4 +1,8 @@
 %h1 Subjects
 %ul
+  - if Subject.count == 0
+    %li= 'No Subjects to Display.'
   - @subjects.each do |s|
-    %li= link_to s.desc, s
+    %li= link_to s.name, s
+  %p= link_to 'New Subject', new_subject_path
+  %p= link_to 'Home', home_path
