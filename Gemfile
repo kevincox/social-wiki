@@ -14,6 +14,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 gem 'uglifier', '~>2.7'
 gem 'bcrypt'
+gem 'acts_as_votable'
 
 group :development do
   gem 'byebug'

@@ -1,3 +1,33 @@
-// Place all the styles related to the subject controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#posts {
+  margin: 0;
+  padding: 0;
+}
+
+.post {
+  display: inline-block;
+  max-width: 30em;
+  width: calc(100% - 2em);
+  margin: 1em;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em 0.4em black;
+  overflow: hidden;
+  
+  .title {
+    margin: 0;
+    padding: 0.2em 0.4em;
+    color: white;
+    text-shadow: 1px 1px black;
+    background: #a864e9;
+    box-shadow: 0 -10em 0.1em 10em black;
+  }
+  
+  .author {
+    padding: 0.4em;
+    text-align: right;
+    color: hsl(0, 0, 40);
+  }
+  
+  .contents {
+    padding: 1em;
+  }
+}

@@ -1,6 +1,5 @@
 /*
- *= require_tree .
- *= require_self
+ * = require_self
  */
 
 html, head, body { margin: 0; padding: 0; width: 100%; height: 100% }
@@ -13,12 +12,17 @@ body {
 header {
   display: flex;
   flex-flow: row;
-  background: purple;
+  align-items: stretch;
+  background: #7100db;
   color: white;
-
+  font-weight: 500;
+  
   #logo {
-    display: row;
-    padding: 0.4em;
+    font-weight: 700;
+  }
+  
+  .spacer {
+    flex: 1;
   }
 
   * {
@@ -28,11 +32,13 @@ header {
     text-decoration: inherit;
   }
 
+  >* {
+    padding: 1em;
+  }
+
   a:hover {
     background: hsla(0, 0, 100, 0.2);
   }
 }
 
-#body {
-  display: table-row;
-}
+// #body { }
