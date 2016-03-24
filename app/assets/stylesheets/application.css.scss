@@ -15,19 +15,19 @@ header {
   flex-flow: row;
   background: purple;
   color: white;
-  
+
   #logo {
-    display: block;
+    display: row;
     padding: 0.4em;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
     color: inherit;
     text-decoration: inherit;
   }
-  
+
   a:hover {
     background: hsla(0, 0, 100, 0.2);
   }

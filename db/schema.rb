@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160323170519) do
   end
 
   add_index "subjects", ["name"], name: "index_subjects_on_name", using: :btree
-
+  
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
@@ -62,4 +62,5 @@ ActiveRecord::Schema.define(version: 20160323170519) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+
 end
