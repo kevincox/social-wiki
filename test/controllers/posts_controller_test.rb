@@ -7,46 +7,57 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should upvote post" do
-    put :upvote, id: @post
-    assert users(:user1).voted_up_on? @post 
-  end  
+    post :vote, id: @post, weight: 1
+    assert users(:user1).voted_up_on? @post
+  end
 
   test "should downvote post" do
-    put :downvote, id: @post
-    assert users(:user1).voted_down_on? @post 
-  end  
-  
-  test "should cancel upvote" do
-    put :upvote, id: @post
-    put :upvote, id: @post
-    refute users(:user1).voted_up_on? @post 
+    post :vote, id: @post, weight: -1
+    assert users(:user1).voted_down_on? @post
   end
 
-  test "should cancel downvote" do
-    put :downvote, id: @post
-    put :downvote, id: @post
-    refute users(:user1).voted_down_on? @post 
-  end 
+  test "should not cancel upvote" do
+    post :vote, id: @post, weight: 1
+    post :vote, id: @post, weight: 1
+    assert users(:user1).voted_up_on? @post
+  end
 
-  test "should have score of 2  after getting 2 upvotes with seperate users" do
-    put :upvote, id: @post
+  test "should not cancel downvote" do
+    post :vote, id: @post, weight: -1
+    post :vote, id: @post, weight: -1
+    assert users(:user1).voted_down_on? @post
+  end
+
+  test "should have score of 2 after getting 2 upvotes with separate users" do
+    post :vote, id: @post, weight: 1
     session[:user_id] = users(:user2).id
-    put :upvote, id: @post
-    assert @post.score == 2
-  end  
-  test "should have score of -2 after getting 2 downvotes with seperate users" do
-    put :downvote, id: @post
-    session[:user_id] = users(:user2).id
-    put :downvote, id: @post
-    assert @post.score == -2
-  end  
-  test "should have score of 0 after getting 1 upvote and 1 downvote with seperate users" do
-    put :upvote, id: @post
-    session[:user_id] = users(:user2).id
-    put :downvote, id: @post
-    assert @post.score == 0
+    post :vote, id: @post, weight: 1
+    assert_equal 2, @post.score
   end
   
+  test "should have score of -2 after getting 2 downvotes with separate users" do
+    post :vote, id: @post, weight: -1
+    session[:user_id] = users(:user2).id
+    post :vote, id: @post, weight: -1
+    assert_equal -2, @post.score
+  end
+  
+  test "should have score of 0 after getting 1 upvote and 1 downvote with separate users" do
+    post :vote, id: @post, weight: 1
+    session[:user_id] = users(:user2).id
+    post :vote, id: @post, weight: -1
+    assert_equal 0, @post.score
+  end
+  
+  test "changing votes should work" do
+    post :vote, id: @post, weight: 1
+    assert_equal 1, @post.score
+    post :vote, id: @post, weight: -1
+    assert_equal -1, @post.score
+    post :vote, id: @post, weight: 0
+    assert_equal 0, @post.score
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -92,6 +103,6 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, id: @post
     end
     assert_redirected_to posts_path
-     
+
   end
 end
