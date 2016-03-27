@@ -42,3 +42,70 @@ header {
 }
 
 // #body { }
+
+.icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.post {
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em 0.4em black;
+  overflow: hidden;
+  
+  .title {
+    margin: 0;
+    padding: 0.2em 0.4em;
+    color: white;
+    text-shadow: 1px 1px black;
+    background: #a864e9;
+    box-shadow: 0 -10em 0.1em 10em black;
+  }
+  
+  .votes {
+    float: right;
+    
+    form {
+      display: inline-block;
+    }
+    
+    button {
+      color: inherit;
+      font-size: 0.8em;
+      text-shadow: inherit;
+      border: none;
+      background: none;
+    }
+    
+    .active {
+      color: #fff300;
+    }
+    
+    .pending {
+      color: blue;
+    }
+  }
+  
+  .meta {
+    padding: 0.4em;
+    text-align: right;
+    color: hsl(0, 0, 40);
+    
+    a {
+      color: inherit;
+    }
+  }
+  
+  .contents {
+    padding: 1em;
+  }
+}

@@ -1,0 +1,21 @@
+= render @post
+
+%h2 Comments
+- @post.comments.each do |comment|
+  %p
+    %strong Author:
+    = comment.user.username
+  %p
+    %strong Comment:
+    = comment.contents
+
+%h2 Add a Comment:
+- if current_user
+  = form_for [@post, @post.comments.build] do |f|
+    %p Commenting as #{current_user}
+    %p
+      = f.label :contents
+      = f.text_area :contents
+    = f.submit
+- else
+  = link_to "Login to Comment", login_path

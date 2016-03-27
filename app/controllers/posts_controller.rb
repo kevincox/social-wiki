@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy,:upvote,:downvote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /posts
   # GET /posts.json
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show 
+  def show
   end
 
   # GET /posts/new
@@ -58,40 +58,36 @@ class PostsController < ApplicationController
     if @post.user == current_user
       @post.destroy
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }        
+        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Post was not destroyed. You do not own this post' } 
+        format.html { redirect_to posts_url, notice: 'Post was not destroyed. You do not own this post' }
       end
     end
   end
-  
-  def upvote
-    if current_user.voted_up_on? @post
-      @post.unvote_by current_user
-    else  
+
+  def vote
+    w = params.require(:weight).to_i
+    case
+    when w > 0
+      pp "UP", w, @post, current_user
       @post.upvote_by current_user
-    end
-    redirect_to posts_path
-  end 
-
-  def downvote
-    if current_user.voted_down_on? @post
-      @post.unvote_by current_user
-    else  
+    when w < 0
+      pp "DOWN", w, @post, current_user
       @post.downvote_by current_user
+    else
+      pp "ZERO", w, @post, current_user
+      @post.unvote_by current_user
     end
-    redirect_to posts_path
-  end 
-
-  
-private
-    # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
+    render nothing: true
   end
-  # Never trust parameters from the scary internet, only allow the white list through.
+
+  private
+  def set_post
+    @post = Post.find(params.require(:id))
+  end
+
   def post_params
     params.require(:post).permit(:title, :contents, :author_id)
   end
