@@ -1,3 +1,5 @@
 test:
   post:
+    - "sed '-es/^test:$/production:/' config/database.yml >> config/database.yml"
+    - bin/rake RAILS_ENV=production assets:precompile
     - git ls-files | xargs bash -c $'! grep -n "\t" "$@"'
