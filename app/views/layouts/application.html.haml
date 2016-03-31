@@ -13,7 +13,7 @@
     = stylesheet_link_tag stylesheet_path params[:controller]
     %header
       = link_to "Social Wiki", "/", {id: 'logo'}
-      .spacer
+      %h1.flex= @title
       - if current_user
         = label_tag current_user.username
         = link_to 'Logout', logout_path
