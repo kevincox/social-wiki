@@ -8,7 +8,6 @@ password:   personal password used to log in
 email:     user's email addres it can be used to log in
 =end
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email
   before_create :create_activation_digest
 
   has_many :posts
@@ -23,7 +22,6 @@ email:     user's email addres it can be used to log in
   validates :password, confirmation: true, length: { in:8..256},format: {with: PASSWORD_REGEX, message: " must include at least one letter and atleast one number"}
   validates :password_confirmation, presence: true
 
-  
   acts_as_voter  
   has_secure_password  
 
@@ -77,8 +75,8 @@ email:     user's email addres it can be used to log in
 
   # Activates an account.
   def activate
-    update_attribute(:activated,    true)
-    update_attribute(:activated_at, Time.zone.now)
+    activated = true
+    activated_at = Time.now
   end
 
   # Sends activation email.
@@ -95,6 +93,7 @@ email:     user's email addres it can be used to log in
 
    # Sends password reset email.
   def send_password_reset_email
+    create_reset_digest
     UserMailer.password_reset(self).deliver_now
   end
 
@@ -104,10 +103,7 @@ email:     user's email addres it can be used to log in
   end
 
 private
-  # Converts email to all lower-case.
-  def downcase_email
-    self.email = email.downcase
-  end
+ 
 
   # Creates and assigns the activation token and digest.
   def create_activation_digest

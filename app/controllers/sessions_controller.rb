@@ -27,8 +27,7 @@ class SessionsController < ApplicationController
   def home
   end
   def profile  
-    @user = User.find(params[:puser])
-    puts @user     
+    @user = User.find(params[:puser])  
   end
 
   def setting
