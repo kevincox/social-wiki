@@ -6,4 +6,15 @@ class Subject < ActiveRecord::Base
   def to_param
     name
   end
+  
+  def self.where_not_includes post
+    Subject.find_by_sql [<<-SQL, post.id]
+      SELECT * FROM subjects
+      WHERE NOT EXISTS (
+        SELECT * FROM posts_subjects
+        WHERE subject_id = subjects.id
+        AND   post_id = ?
+      )
+    SQL
+  end
 end

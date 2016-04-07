@@ -2,6 +2,14 @@
 
 = render @post
 
+%h2 Add this post to:
+%ul
+  - Subject.where_not_includes(@post).each do |subject|
+    %li
+      = form_for @post, method: :patch do |f|
+        = f.hidden_field :subject_ids_add, value: subject.id
+        = f.submit subject.name
+
 %h2 This post is in:
 %ul
   - @post.subjects.each do |subject|
