@@ -39,7 +39,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "should get profile," do
     session[:user_id] = users(:user1).id
     get :profile
-    assert_response :success
+    assert_redirected_to users :user1
   end
 
   test "should get setting" do
