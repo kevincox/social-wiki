@@ -23,8 +23,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-  	puts user_params
-  	respond_to do |format|
+    respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to :profile, notice: 'password was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
@@ -48,7 +47,7 @@ private
   end
   # Confirms a valid user.
   def valid_user
-  	unless (@user && @user.activated?)
+    unless (@user && @user.activated?)
       redirect_to root_url
     end 
   end
