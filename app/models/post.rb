@@ -10,6 +10,10 @@ class Post < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
   
+  def subject_ids_add= ids
+    update subject_ids: subject_ids + [*ids]
+  end
+  
   def vote_by_user user
     return 0 unless user
     vote = votes_for.where(voter: user).take
