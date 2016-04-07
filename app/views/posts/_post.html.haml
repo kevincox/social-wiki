@@ -13,7 +13,7 @@
       posted
       \ #{link_to "#{time_ago_in_words post.created_at} ago", post}
       \ by
-      \ #{link_to post.user, post.user}
+      \ #{link_to post.user, profile_path}
     .contents!= post.contents
 
   .comments
