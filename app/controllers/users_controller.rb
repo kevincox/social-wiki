@@ -32,8 +32,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        @user.send_activation_email
         session[:user_id] = @user.id
-        format.html { redirect_to :home, notice: 'User was successfully created.' }
+        format.html { redirect_to :home, notice: 'Please check your email to activate your account.' }
       else
         format.html { render :signup }
         format.json { render json: @user.errors, status: :unprocessable_entity }

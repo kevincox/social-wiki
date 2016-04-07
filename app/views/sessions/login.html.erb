@@ -10,9 +10,11 @@
     <%= text_field_tag :username_or_email %>
   </div>
   <div class="field">
-    <%= label_tag :login_password %><br>
+    <%= label_tag :login_password %>
+    <%= link_to "(forgot password)", new_password_reset_path%><br>
     <%= password_field_tag :login_password %>
   </div>
+
   <div class="action">
     <%= submit_tag :Login %>
   </div>

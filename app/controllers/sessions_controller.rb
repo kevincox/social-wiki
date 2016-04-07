@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
     authorized_user = User.authenticate_with_username_or_email(login_attempt_params[:username_or_email],login_attempt_params[:login_password])
     respond_to do |format|
       if authorized_user
-        session[:user_id] = authorized_user.id
-        format.html{ redirect_to :home, notice: 'Hey welcome in buddy' }
+        if authorized_user.activated?
+          session[:user_id] = authorized_user.id
+          format.html{ redirect_to :home, notice: 'Hey welcome in buddy' }
+        else
+          format.html{ redirect_to :login, notice: "oops, account not activated, check your email for activation" }
+        end
       else
         format.html{ redirect_to :login, notice: "oops, invalid username or password" }
       end
@@ -26,7 +30,7 @@ class SessionsController < ApplicationController
     if current_user.nil?
        redirect_to :login 
     else
-      current_user    
+      @user = current_user    
     end   
   end
 
