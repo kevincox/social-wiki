@@ -1,0 +1,44 @@
+%p
+  <strong>Username: </strong>
+  = @user.username
+
+%p
+  <strong>Email: </strong>
+  = @user.email
+
+%h1 Welcome #{@user.to_s}, to your profile page!
+%p Here, you'll be allowed to view, edit, and destroy your posts
+%h2 Some stats for you
+%p
+  Total number of your posts : #{@user.posts.count}
+%p
+  Democracy level (votes given) : #{@user.votes.size}
+%p
+  Trust score : #{@user.trustscore}
+
+%table
+  %thead
+    %tr
+      %th Score
+      %th Title
+      %th Contents
+      %th Author
+      %th{colspan: "3"}
+  %tbody
+    - @user.posts.each do |post|
+      %tr
+        %td= post.score
+        %td= post.title
+        %td= post.contents
+        %td= post.user.to_s
+        %td= link_to 'Open', post
+        %td= link_to 'Edit', edit_post_path(post)
+        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+
+= render 'follow_form' if current_user
+
+%h3 Posts (#{@user.posts.count})
+= render @user.posts
+
+= link_to 'Edit', edit_user_path(@user)
+= link_to 'Feed', feed_path
