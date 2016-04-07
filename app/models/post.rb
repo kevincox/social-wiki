@@ -17,4 +17,16 @@ class Post < ActiveRecord::Base
     return 0 unless vote
     vote.vote_flag ? vote.vote_weight : -vote.vote_weight
   end
+  
+  def self.order_by_score
+    order <<-SQL
+      (SELECT
+        COALESCE(
+          SUM(CASE WHEN vote_flag THEN vote_weight ELSE -VOTE_WEIGHT END),
+          0)
+      FROM votes
+      WHERE votable_id = posts.id
+      AND votable_type = 'Post') DESC
+    SQL
+  end
 end
