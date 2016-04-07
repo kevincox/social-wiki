@@ -11,10 +11,10 @@ email:     user's email addres it can be used to log in
   has_many :comments
 
   EMAIL_REGEX =  %r{[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z}i
-
+  PASSWORD_REGEX = %r{(?=.*[a-zA-Z])(?=.*[0-9])}i
   validates :username, presence: true, uniqueness: true, length: { in: 3..32 }
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX 
-  validates :password, confirmation: true, length: {in: 8..256}  
+  validates :password, confirmation: true, length: { in:8..256}, format: PASSWORD_REGEX
   validates :password_confirmation, presence: true
   
   acts_as_voter  
