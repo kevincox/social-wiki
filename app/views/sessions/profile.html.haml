@@ -1,11 +1,14 @@
 %h1 
-  Welcome #{@user.to_s}
-%p 
-  Here, you'll be allowed to view, edit, and destroy your posts
+  #{@user.to_s}'s profile page
+%p
+  - if current_user == @user 
+    Here, you'll be allowed to view, edit, and destroy your posts
+  - else
+    Here you can look at #{@user.to_s}'s posts
 %h2 
   Some stats for you
 %p
-  Total number of your posts : #{@user.posts.count}
+  Total number of posts : #{@user.posts.count}
 %p
   Democracy level (votes given) : #{@user.votes.size}
 %p

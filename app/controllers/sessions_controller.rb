@@ -26,12 +26,9 @@ class SessionsController < ApplicationController
 
   def home
   end
-  def profile 
-    if current_user.nil?
-       redirect_to :login 
-    else
-      @user = current_user    
-    end   
+  def profile  
+    @user = User.find(params[:puser])
+    puts @user     
   end
 
   def setting
