@@ -8,6 +8,7 @@ body {
   display: flex;
   flex-flow: column;
   font-family: sans-serif;
+  background-color: #e5e5e5;
 }
 
 header {
@@ -68,9 +69,10 @@ header {
   margin: 1em;
   
   .self {
-    border-radius: 0.4em;
+    border-radius: 2px;
     box-shadow: 0.1em 0.1em 0.4em black;
     overflow: hidden;
+    background: white;
     
     .title {
       margin: 0;
@@ -121,13 +123,50 @@ header {
   }
   
   .commentish {
-    margin: 0 1em;
+    margin: 0 0.4em;
     padding: 0.4em;
-    background: #fff;
-    border: 1px solid #aaa;
+    border: 1px solid #e5e5e5;
+    background: #f4f4f4;
     
     &:not(:first-child) {
       border-top: none;
+    }
+  }
+  
+  .comment {
+    * {
+      all: unset;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .head {
+      display: flex;
+      flex-flow: row;
+    }
+    .user {
+      flex: 1;
+      font-weight: 700;
+    }
+    .date {
+    }
+    .content {
+      clear: both;
+      display: block;
+      margin-top: 0.6em;
+    }
+  }
+  
+  .add-comment {
+    background: #fff;
+    
+    form {
+      display: flex;
+      flex-flow: row;
+      
+      input[type=text] {
+        flex: 1;
+      }
     }
   }
 }

@@ -18,14 +18,10 @@
 
   .comments
     = render post.comments
-    .commentish
-      %h2 Add a Comment:
+    .commentish.add-comment
       - if current_user
         = form_for [post, post.comments.build] do |f|
-          %p Commenting as #{current_user}
-          %p
-            = f.label :contents
-            = f.text_area :contents
-          = f.submit
+          = f.text_field :contents
+          = f.submit 'Comment'
       - else
         = link_to "Login to Comment", login_path
