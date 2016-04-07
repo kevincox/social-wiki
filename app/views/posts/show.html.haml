@@ -1,3 +1,8 @@
 - @title = @post.title
 
 = render @post
+
+%h2 This post is in:
+%ul
+  - @post.subjects.each do |subject|
+    %li= link_to subject.name, subject
