@@ -2,7 +2,7 @@
 %p= @subject.desc
 
 #posts
-  = render @subject.posts
+  = render @subject.posts.order_by_score
 
 = form_for Post.new do |f|
   = f.hidden_field :subject, value: @subject.id
