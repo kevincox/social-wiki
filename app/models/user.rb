@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
 =begin
 User attributes
-username:   this is the username that the user goes by it can be used to log in. 
+username:   this is the username that the user goes by it can be used to log in.
        It showed be shown next to users posts and comments. S
        Should be unique
-password:   personal password used to log in 
+password:   personal password used to log in
 email:     user's email addres it can be used to log in
 =end
   has_many :posts
@@ -22,7 +22,19 @@ email:     user's email addres it can be used to log in
   
   acts_as_voter  
   has_secure_password  
-  
+
+  def trustscore
+      up_score = 0.0
+      vote_score = 0.0
+      self.posts.each do |post|
+        up_score += post.get_upvotes.size
+        vote_score += post.votes_for.size
+      end
+      if vote_score == 0.0
+        vote_score =1.0
+      end
+      return up_score/vote_score * 10
+    end
   def self.authenticate_with_username_or_email(username_or_email,login_password)
     if EMAIL_REGEX.match(username_or_email)
       user = User.find_by_email(username_or_email)
@@ -35,7 +47,7 @@ email:     user's email addres it can be used to log in
       return nil
     end
   end
-  
+
   def to_s
     username
   end

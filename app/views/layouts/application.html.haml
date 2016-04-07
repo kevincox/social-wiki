@@ -15,7 +15,7 @@
       = link_to "Social Wiki", "/", {id: 'logo'}
       %h1.flex= @title
       - if current_user
-        = label_tag current_user.username
+        = link_to current_user.username, profile_path
         = link_to 'Logout', logout_path
       - else
         = link_to "Log in", login_path
@@ -25,4 +25,3 @@
     
     #body
       = yield
-    

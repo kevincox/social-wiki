@@ -29,11 +29,13 @@ class PostsController < ApplicationController
     @post.user = current_user
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        unless @post.subjects.empty?
+          format.html { redirect_to @post.subjects.first, notice: 'Post was successfully created.' }
+        else
+          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        end
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -89,6 +91,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :contents, :author_id)
+    params.require(:post).permit(:title, :contents, :author_id, :subject_ids)
   end
 end

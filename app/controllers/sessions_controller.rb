@@ -22,7 +22,12 @@ class SessionsController < ApplicationController
 
   def home
   end
-  def profile
+  def profile 
+    if current_user.nil?
+       redirect_to :login 
+    else
+      current_user    
+    end   
   end
 
   def setting
