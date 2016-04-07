@@ -50,6 +50,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:username,:password,:password_digest,:password_confirmation, :email)
+    params.require(:user).permit(:username,:password,:password_digest,:password_confirmation, :email, :email_confirmation)
   end
 end
