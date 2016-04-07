@@ -3,3 +3,20 @@
 
 #posts
   = render @subject.posts
+
+= form_for Post.new do |f|
+  = f.hidden_field :subject, value: @subject.id
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :contents
+    = f.text_area :contents
+  .actions
+    = f.submit
+  - if @post.errors.any?
+    #error_explaination
+      %h2 #{pluralize @post.errors.count, 'error'} prohibited this subject from being saved:
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
