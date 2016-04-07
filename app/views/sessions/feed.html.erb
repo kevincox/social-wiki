@@ -1,0 +1,10 @@
+<h1>Feed</h1>
+
+<% unless current_user.feed.nil? %>
+  <%= render current_user.feed %>
+<% end %>
+<% if current_user.feed.nil? %>
+  <p> "Follow a User to get a Feed!" </p>
+<% end %>
+
+<%= link_to 'Home', home_path %>

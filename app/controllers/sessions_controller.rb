@@ -33,6 +33,9 @@ class SessionsController < ApplicationController
   def setting
   end
 
+  def feed
+  end
+
 private
 
   def login_attempt_params

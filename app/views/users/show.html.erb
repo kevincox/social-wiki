@@ -13,14 +13,14 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Upvote:</strong>
-  <%= @user.upvote %>
-</p>
+<%= render 'follow_form' if current_user %>
+    <% if @user.posts.any? %>
+      <h3>Posts (<%= @user.posts.count %>)</h3>
+        <% unless @posts.nil? %>
+          <%= render @posts %>
+        <% end %>
+    <% end %>
 
-<p>
-  <strong>Downvote:</strong>
-  <%= @user.downvote %>
-</p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<%= link_to 'Feed', feed_path %>
