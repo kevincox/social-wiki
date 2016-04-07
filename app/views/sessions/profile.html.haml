@@ -1,4 +1,4 @@
-%h1 Welcome #{current_user.username}, to your profile page!
+%h1 Welcome #{current_user.to_s}, to your profile page!
 %p Here, you'll be allowed to view, edit, and destroy your posts
 %h2 Some stats for you
 %p
@@ -22,7 +22,7 @@
         %td= post.score
         %td= post.title
         %td= post.contents
-        %td= post.user.username
+        %td= post.user.to_s
         %td= link_to 'Open', post
         %td= link_to 'Edit', edit_post_path(post)
         %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }

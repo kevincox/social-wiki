@@ -23,7 +23,9 @@ class SessionsController < ApplicationController
   def home
   end
   def profile 
-    current_user   
+    if current_user.nil
+        
+    end   
   end
 
   def setting
