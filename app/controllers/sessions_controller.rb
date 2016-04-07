@@ -35,7 +35,8 @@ class SessionsController < ApplicationController
   def statistics
     @users = User.all
     @posts = Post.all
-    @subjects = Subject.all
+    @subjects = Subject.all  
+  
   end 
 private
 
