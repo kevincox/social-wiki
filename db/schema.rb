@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 20160407072456) do
     t.string   "email",                             null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.string   "activation_digest",                 null: false
+    t.string   "activation_digest"
     t.boolean  "activated",         default: false, null: false
-    t.datetime "activated_at",                      null: false
-    t.string   "reset_digest",                      null: false
-    t.datetime "reset_sent_at",                     null: false
+    t.datetime "activated_at"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
   create_table "votes", force: :cascade do |t|
