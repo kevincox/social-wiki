@@ -27,16 +27,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    unless params[:post][:subject].nil?
-      @subject = Subject.find(params[:post][:subject])
-    end
     respond_to do |format|
-      unless @subject.blank?
-        @post.subjects << @subject
-        format.html { redirect_to @subject, notice: 'Post was successfully created.' }
-      end
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        unless @post.subjects.empty?
+          format.html { redirect_to @post.subjects.first, notice: 'Post was successfully created.' }
+        else
+          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        end
       else
         format.html { render :new }
       end
@@ -94,10 +91,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    @post_params ||= begin
-     p = params.require(:post).permit(:title, :contents, :author_id, :subjects)
-     p[:subjects] = Subjects.find(p[:subjects]) if p.include? :subjects
-     p
-    end
+    params.require(:post).permit(:title, :contents, :author_id, :subject_ids)
   end
 end

@@ -5,7 +5,7 @@
   = render @subject.posts
 
 = form_for Post.new do |f|
-  = f.hidden_field :subject, value: @subject.id
+  = f.hidden_field :subject_ids, value: @subject.id
   .field
     = f.label :title
     = f.text_field :title
