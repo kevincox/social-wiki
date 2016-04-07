@@ -2,8 +2,12 @@ user1:
   username: 'user1'
   password_digest:  <%= BCrypt::Password.create 'password1' %>
   email: 'user1@email.ca'
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 user2:
   username: 'user2'
   password_digest:  <%= BCrypt::Password.create 'password2' %>
   email: 'user2@email.ca'
+  activated: true
+  activated_at: <%= Time.zone.now %>

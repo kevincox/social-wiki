@@ -30,5 +30,8 @@
         %td= post.contents
         %td= post.user.to_s
         %td= link_to 'Open', post
-        %td= link_to 'Edit', edit_post_path(post)
+      - if current_user == @user 
+        %td= link_to 'Edit', edit_post_path(post) 
         %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+        
+

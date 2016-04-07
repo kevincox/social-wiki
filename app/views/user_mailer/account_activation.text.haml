@@ -1,0 +1,7 @@
+Hi  #{@user.username}
+
+Welcome to Social-Wiki! Click the link below to activate your account:
+
+=edit_account_activation_url(@user.activation_token, email: @user.email)
+
+Looking forward to seeing you arround buddy.
