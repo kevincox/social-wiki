@@ -14,7 +14,7 @@ email:     user's email addres it can be used to log in
   PASSWORD_REGEX = %r{(?=.*[a-zA-Z])(?=.*[0-9])}i
 
   validates :username, presence: true, uniqueness: true, length: { in: 3..32 } 
-  validates :email, confirmation: true, presence: true, uniqueness: true, format: EMAIL_REGEX 
+  validates :email, confirmation: true, presence: true, uniqueness: true, format: {with: EMAIL_REGEX, message:  " must have a valid format"}
   validates :email_confirmation, presence: true
   validates :password, confirmation: true, length: { in:8..256},format: {with: PASSWORD_REGEX, message: " must include at least one letter and atleast one number"}
   validates :password_confirmation, presence: true
