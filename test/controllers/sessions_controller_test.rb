@@ -38,7 +38,7 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should get profile," do
     session[:user_id] = users(:user1).id
-    get :profile
+    get :profile, {:puser => users(:user1).id}
     assert_response :success
   end
 
