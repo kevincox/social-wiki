@@ -21,16 +21,18 @@ email:     user's email addres it can be used to log in
   has_secure_password
 
   def trustscore
-      up_score = 0.0
-      vote_score = 0.0
-      self.posts.each do |post|
-        up_score += post.get_upvotes.size
-        vote_score += post.votes_for.size
-      end
-      if vote_score == 0.0
-        vote_score =1.0
-      end
-      return up_score/vote_score * 10
+      # Rails has no easy way to parameterize raw SQL but since ID is an int we
+      # should be fine. I added to_i to be extra safe.
+      ActiveRecord::Base.connection.execute(<<-SQL).first['score'.freeze]
+        SELECT
+          COALESCE(
+            SUM(CASE WHEN vote_flag THEN vote_weight ELSE -VOTE_WEIGHT END) / COUNT(*),
+            0) as score
+        FROM posts
+        JOIN votes ON votable_id = posts.id
+          AND votable_type = 'Post'
+        WHERE posts.user_id = #{id.to_i}
+      SQL
     end
 
   def self.authenticate_with_username_or_email(username_or_email,login_password)
