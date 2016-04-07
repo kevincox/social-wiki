@@ -32,7 +32,11 @@ class SessionsController < ApplicationController
 
   def setting
   end
-
+  def statistics
+    @users = User.all
+    @posts = Post.all
+    @subjects = Subject.all
+  end 
 private
 
   def login_attempt_params
