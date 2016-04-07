@@ -12,6 +12,6 @@ class SubjectTest < ActiveSupport::TestCase
   test "unique subjects" do
     s = Subject.new(name: 'Cool Sub', desc: 'Copy Cat')
     s.save
-    assert_equal false, Subject.exists?(3)
+    assert_equal false, s.valid?
   end
 end

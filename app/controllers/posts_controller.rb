@@ -27,7 +27,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @subject = Subject.find(params[:post][:subject])
+    unless params[:post][:subject].nil?
+      @subject = Subject.find(params[:post][:subject])
+    end
     respond_to do |format|
       unless @subject.blank?
         @post.subjects << @subject
