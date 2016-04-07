@@ -2,8 +2,9 @@
 %html
   %head
     %title Social Wiki
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
+    = stylesheet_link_tag 'application', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
     = csrf_meta_tags
     = yield :head
 
@@ -11,14 +12,16 @@
     = javascript_include_tag javascript_path params[:controller]
     = stylesheet_link_tag stylesheet_path params[:controller]
     %header
-      #headerbar
-        = link_to "Social Wiki", "/", {id: 'logo'}
-        - if current_user
-          = link_to  current_user.username, profile_path
-          = link_to 'Logout', logout_path, {id: 'logo'}
-        - else
-          = link_to "Log in", login_path, {id: 'logo'}
-          = link_to "Sign up", signup_path, {id: 'logo'}
-
+      = link_to "Social Wiki", "/", {id: 'logo'}
+      %h1.flex= @title
+      - if current_user
+        = link_to current_user.username, profile_path
+        = link_to 'Logout', logout_path
+      - else
+        = link_to "Log in", login_path
+        = link_to "Sign up", signup_path
+        
+    %p#notice= notice
+    
     #body
       = yield

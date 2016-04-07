@@ -10,4 +10,11 @@ class Post < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
   
+  def vote_by_user user
+    return 0 unless user
+    vote = votes_for.where(voter: user).take
+    pp vote
+    return 0 unless vote
+    vote.vote_flag ? vote.vote_weight : -vote.vote_weight
+  end
 end

@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   resources :posts do
     member do 
-      put "upvote", to: 'posts#upvote'
-      put "downvote", to: 'posts#downvote'
-    end  
+      post 'vote', to: 'posts#vote'
+    end
     resources :comments
   end
   resources :subjects

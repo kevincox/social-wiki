@@ -1,0 +1,31 @@
+.post
+  .self
+    %h2.title
+      = post.title
+      .votes
+        - vote = post.vote_by_user current_user
+        %form.up{'data-target': vote_post_path(post), class: vote > 0 && :active}
+          %button.icon thumb_up
+        = post.score
+        %form.down{'data-target': vote_post_path(post), class: vote < 0 && :active}
+          %button.icon thumb_down
+    .meta
+      posted
+      \ #{link_to "#{time_ago_in_words post.created_at} ago", post}
+      \ by
+      \ #{link_to post.user, post.user}
+    .contents!= post.contents
+
+  .comments
+    = render post.comments
+    .commentish
+      %h2 Add a Comment:
+      - if current_user
+        = form_for [post, post.comments.build] do |f|
+          %p Commenting as #{current_user}
+          %p
+            = f.label :contents
+            = f.text_area :contents
+          = f.submit
+      - else
+        = link_to "Login to Comment", login_path

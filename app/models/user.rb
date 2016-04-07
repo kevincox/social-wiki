@@ -45,4 +45,8 @@ email:     user's email addres it can be used to log in
       return nil
     end
   end
+
+  def to_s
+    username
+  end
 end
