@@ -40,7 +40,7 @@ private
 
   end
   def get_user
-    @user = User.find_by(email: params.require :email)
+    @user = User.find_by(params.require :email)
   end
   # Confirms a valid user.
   def ensure_valid_user
