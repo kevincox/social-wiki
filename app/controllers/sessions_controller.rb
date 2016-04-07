@@ -22,8 +22,8 @@ class SessionsController < ApplicationController
 
   def home
   end
-  def profile
-    current_user
+  def profile 
+    current_user   
   end
 
   def setting

@@ -30,7 +30,7 @@ email:     user's email addres it can be used to log in
       if vote_score == 0.0
         vote_score =1.0
       end
-      return up_score/vote_score *100
+      return up_score/vote_score * 10
     end
 
   def self.authenticate_with_username_or_email(username_or_email,login_password)
