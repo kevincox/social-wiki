@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :subjects
   
   resources :users
@@ -33,6 +38,14 @@ Rails.application.routes.draw do
   get 'subjects' => 'subjects#index'
   
   get 'users' => 'users#index'
+
+  get 'feed' => 'sessions#feed'
+
+  get 'following' => 'users#following'
+
+  get 'followers' => 'users#followers'
+
+  resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
