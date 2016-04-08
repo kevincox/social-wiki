@@ -11,6 +11,16 @@
   - Added Posting and Commenting as a User.
   - Added Home Page + Basic Header.
   - Completed Scrum 2.
-- [ ] **Milestone 3:** Alpha Release
-- [ ] **Milestone 4:** Final Demo
-
+- [x] **Milestone 3:** Alpha Release
+  - Improved UI.
+  - Added Subject model and allow the creation of subjects.
+  - Added Upvotes/downvotes.
+  - Improved header.
+  - Added basic user stats page.
+- [x] **Milestone 4:** Final Demo
+  - Added Posting on Subjects.
+  - More UI improvements.
+  - Added Following/Followers feature + News Feed.
+  - More improved user stats.
+  - User Profile Page.
+  - Code cleanup + optimizations
