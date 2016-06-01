@@ -1,0 +1,9 @@
+%h1 Social-Wiki Stats!
+
+
+%p
+  number of users: #{@users.size}, averegage user signup per day: #{@users.size/(Time.zone.now.day - @users.first.created_at.day + 1)} 
+%p
+  number of posts: #{@posts.size},averegage post per day: #{@posts.size/(Time.zone.now.day - @posts.first.created_at.day + 1)}
+%p
+  number of subjects: #{@subjects.size},averegage subject per day: #{@subjects.size/(Time.zone.now.day - @subjects.first.created_at.day + 1)}

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   
   get 'users' => 'users#index'
 
+  get 'statistics'=> 'sessions#statistics'
+
   get 'feed' => 'sessions#feed'
 
   get 'following' => 'users#following'
